@@ -6,7 +6,8 @@ RUN yum -y update
 RUN yum -y install java-1.6.0-openjdk unzip
 
 RUN curl -o /tmp/NIFTY_Cloud_api-tools.zip -SL http://cloud.nifty.com/api/sdk/NIFTY_Cloud_api-tools.zip \
-	&& unzip /tmp/NIFTY_Cloud_api-tools.zip -d /opt/
+	&& unzip /tmp/NIFTY_Cloud_api-tools.zip -d /opt/ \
+	&& chmod 755 /opt/NIFTY_Cloud_api-tools/bin/*
 
 ENV NIFTY_CLOUD_HOME=/opt/NIFTY_Cloud_api-tools
 ENV PATH=$PATH:$NIFTY_CLOUD_HOME/bin
